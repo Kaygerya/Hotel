@@ -1,0 +1,22 @@
+﻿@model HotelManager.Web.Models.Room.RoomModel
+<input type="hidden" asp-for="Id" />
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="form-group row">
+            <label asp-for="Number" class="col-md-3 label-list" style="text-align:right">@Localize.GetLocaleString("Number")</label>
+            <div class="col-md-9">
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="BedCount" class="col-md-3 label-list" style="text-align:right">@Localize.GetLocaleString("BedCount")</label>
+            <div class="col-md-9">
+                <input asp-for="BedCount" class="form-control" />
+                <span asp-validation-for="BedCount"></span>
+            </div>
+        </div>
+
+    </div>
+</div>

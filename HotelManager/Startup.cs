@@ -46,10 +46,9 @@ namespace HotelManager.Web
             services.AddTransient<IRepository, MongoRepository>();
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ILanguageService, LanguageService>();
-            //services.AddMvc().AddJsonOptions(options =>
-            //{
-            //    options.SerializerSettings.DateFormatHandling =  DateFormatHandling.IsoDateFormat;
-            //});
+            services.AddSingleton<IRoomService, RoomService>();
+
+
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>

@@ -18,10 +18,8 @@ namespace ERPManager.Core.Model
         public MongoRepository(IOptions<ConfigurationOptions> optionsAccessor)
         {
             var configurationOptions = optionsAccessor.Value;
-
             _client = new MongoClient(configurationOptions.MongoSettings.MongoConnection);
             _database = _client.GetDatabase(configurationOptions.MongoSettings.MongoDatabaseName);
-
         }
 
         public IQueryable<T> All<T>() where T : Entity, new()
