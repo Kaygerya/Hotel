@@ -1,0 +1,147 @@
+﻿//// Configure bundling and minification for the project.
+//// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+//[
+//  //{
+//  //  "outputFileName": "/css/site.min.css",
+//  //  // An array of relative input file paths. Globbing patterns supported
+//  //  "inputFiles": [
+//  //    "/css/site.css"
+//  //  ]
+//  //},
+  {
+    "outputFileName": "wwwroot/js/Core.js",
+    "inputFiles": [
+      "/bower_components/jQuery/dist/jquery.js",
+      "/bower_components/bootstrap/dist/js/bootstrap.js"
+    ],
+    // Optionally specify minification options
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false
+  },
+//  {
+//    "outputFileName": "wwwroot/css/Plugins.css",
+//    "inputFiles": [
+//      "wwwroot/Content/assets/vendor/jScrollPane/jquery.jscrollpane.css",
+//      "wwwroot/Content/global/vendor/animsition/animsition.css",
+//      "wwwroot/Content/global/vendor/asscrollable/asScrollable.css",
+//      "wwwroot/Content/global/vendor/switchery/switchery.css",
+//      "wwwroot/Content/global/vendor/intro-js/introjs.css",
+//      "wwwroot/Content/global/vendor/slidepanel/slidePanel.css",
+//      "wwwroot/Content/global/vendor/flag-icon-css/flag-icon.css",
+//      "wwwroot/Content/global/vendor/webui-popover/webui-popover.css",
+//      "wwwroot/Content/global/vendor/toolbar/toolbar.css",
+//      "wwwroot/Content/global/vendor/chartist-js/chartist.css",
+//      "wwwroot/Content/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css",
+//      "wwwroot/Content/global/vendor/aspieprogress/asPieProgress.css",
+//      "wwwroot/Content/global/vendor/jquery-selective/jquery-selective.css",
+//      "wwwroot/Content/assets/examples/css/dashboard/team.css",
+//      "wwwroot/Content/global/vendor/gridstack/gridstack.css",
+//      "wwwroot/Content/assets/examples/css/uikit/panel-portlets.css",
+//      "wwwroot/Content/assets/css/toastr.css",
+//      "wwwroot/Content/assets/vendor/select2/select2.css",
+//      "wwwroot/Content/assets/vendor/c3/c3.css",
+//      "wwwroot/Content/assets/css/alertify.css",
+//      "wwwroot/Content/global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.css",
+//      "wwwroot/Content/global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css",
+//      "wwwroot/Content/global/vendor/bootstrap-select/bootstrap-select.css",
+//      "wwwroot/Content/global/vendor/icheck/icheck.css",
+//      "wwwroot/Content/global/vendor/asrange/asRange.css",
+//      "wwwroot/Content/global/vendor/asspinner/asSpinner.css",
+//      "wwwroot/Content/global/vendor/clockpicker/clockpicker.css",
+//      "wwwroot/Content/global/vendor/ascolorpicker/asColorPicker.css",
+//      "wwwroot/Content/global/vendor/bootstrap-touchspin/bootstrap-touchspin.css",
+//      "wwwroot/Content/global/vendor/card/card.css",
+//      "wwwroot/Content/global/vendor/jquery-labelauty/jquery-labelauty.css",
+//      "wwwroot/Content/global/vendor/bootstrap-maxlength/bootstrap-maxlength.css",
+//      "wwwroot/Content/global/vendor/jt-timepicker/jquery-timepicker.css",
+//      "wwwroot/Content/global/vendor/jquery-strength/jquery-strength.css",
+//      "wwwroot/Content/global/vendor/multi-select/multi-select.css",
+//      "wwwroot/Content/global/vendor/typeahead-js/typeahead.css",
+//      "wwwroot/Content/assets/examples/css/forms/advanced.css",
+//      "wwwroot/Content/global/vendor/slick-carousel/slick.css",
+//      "wwwroot/Content/global/vendor/ladda-bootstrap/ladda.css",
+//      "wwwroot/Content/assets/examples/css/advanced/rating.css",
+//      "wwwroot/Content/global/vendor/bootstrap-table/bootstrap-table.css",
+//      "wwwroot/Content/assets/examples/css/uikit/progress-bars.css",
+//      "wwwroot/Content/global/vendor/magnific-popup/magnific-popup.css",
+//      "wwwroot/Content/assets/js/tooltip/naoTooltips.css",
+//      "wwwroot/Content/assets/js/tooltip/balloon.css"
+//    ],
+//    "minify": {
+//      "enabled": true,
+//      "renameLocals": true
+//    },
+//    // Optionally generate .map file
+//    "sourceMap": false
+//  },
+//  {
+//    "outputFileName": "wwwroot/js/Core.js",
+//    "inputFiles": [
+//      "wwwroot/Content/global/vendor/jquery/jquery.js",
+//      "wwwroot/Content/assets/vendor/jquery/jquery.cookie.js",
+//      "wwwroot/Content/global/vendor/jquery-ui/jquery-ui.js",
+//      "wwwroot/Content/global/vendor/bootstrap/bootstrap.js",
+//      "wwwroot/Content/global/vendor/animsition/animsition.js",
+//      "wwwroot/Content/global/vendor/asscroll/jquery-asScroll.js",
+//      "wwwroot/Content/global/vendor/mousewheel/jquery.mousewheel.js",
+//      "wwwroot/Content/global/vendor/asscrollable/jquery.asScrollable.all.js",
+//      "wwwroot/Content/global/vendor/ashoverscroll/jquery-asHoverScroll.js",
+//      "wwwroot/Content/assets/vendor/jScrollPane/jquery.jscrollpane.js",
+//      "wwwroot/Content/assets/vendor//bootstrap-tour/bootstrap-tour.js"
+//    ],
+//    "minify": {
+//      "enabled": true,
+//      "renameLocals": true
+//    },
+//    // Optionally generate .map file
+//    "sourceMap": false
+//  },
+//  {
+//    "outputFileName": "wwwroot/js/PluginScripts.js",
+//    "inputFiles": [
+//      "wwwroot/Content/global/vendor/switchery/switchery.js",
+//      "wwwroot/Content/assets/vendor/d3/d3.js",
+//      "wwwroot/Content/assets/vendor/c3/c3.js",
+//      "wwwroot/Content/global/vendor/intro-js/intro.js",
+//      "wwwroot/Content/global/vendor/screenfull/screenfull.js",
+//      "wwwroot/Content/global/vendor/slidepanel/jquery-slidePanel.js",
+//      "wwwroot/Content/global/vendor/webui-popover/jquery.webui-popover.js",
+//      "wwwroot/Content/global/vendor/toolbar/jquery.toolbar.js",
+//      "wwwroot/Content/global/vendor/chartist-js/chartist.js",
+//      "wwwroot/Content/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.js",
+//      "wwwroot/Content/global/vendor/aspieprogress/jquery-asPieProgress.js",
+//      "wwwroot/Content/global/vendor/matchheight/jquery.matchHeight.js",
+//      "wwwroot/Content/global/vendor/jquery-selective/jquery-selective.js",
+//      "wwwroot/Content/global/vendor/lodash/lodash.js",
+//      "wwwroot/Content/global/vendor/toastr/toastr.js",
+//      "wwwroot/Content/assets/vendor/asprogress/jquery-asProgress.js",
+//      "wwwroot/Content/assets/vendor/select2/select2.js",
+//      "wwwroot/Content/assets/vendor/bootstrap-tokenfield/bootstrap-tokenfield.js",
+//      "wwwroot/Content/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js",
+//      "wwwroot/Content/assets/vendor/bootstrap-select/bootstrap-select.js",
+//      "wwwroot/Content/assets/vendor/icheck/icheck.js",
+//      "wwwroot/Content/assets/vendor/asrange/jquery-asRange.js",
+//      "wwwroot/Content/assets/vendor/asspinner/jquery-asSpinner.js",
+//      "wwwroot/Content/assets/vendor/clockpicker/bootstrap-clockpicker.js",
+//      "wwwroot/Content/assets/vendor/ascolor/jquery-asColor.js",
+//      "wwwroot/Content/assets/vendor/asgradient/jquery-asGradient.js",
+//      "wwwroot/Content/assets/vendor/ascolorpicker/jquery-asColorPicker.js",
+//      "wwwroot/Content/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js",
+//      "wwwroot/Content/assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js",
+//      "wwwroot/Content/assets/vendor/card/jquery.card.js",
+//      "wwwroot/Content/assets/vendor/multi-select/jquery.multi-select.js",
+//      "wwwroot/Content/assets/vendor/typeahead-js/bloodhound.js",
+//      "wwwroot/Content/assets/vendor/typeahead-js/typeahead.jquery.js"
+//    ],
+//    "minify": {
+//      "enabled": false,
+//      "renameLocals": true
+//    },
+//    // Optionally generate .map file
+//    "sourceMap": false
+//  }
+//]
