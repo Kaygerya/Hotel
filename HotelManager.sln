@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManager.Web", "HotelManager\HotelManager.Web.csproj", "{C5360407-49D7-4129-ACDC-277A64D41867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Web", "HotelManager\HotelManager.Web.csproj", "{C5360407-49D7-4129-ACDC-277A64D41867}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERPManager.Core", "ERPManager.Core\ERPManager.Core.csproj", "{3879BE62-0ACD-498B-9E75-0986166D9EFA}"
 EndProject
