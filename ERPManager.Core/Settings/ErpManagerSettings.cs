@@ -25,8 +25,5 @@ namespace ERPManager.Core.Settings
 
         public static string IdentityContexConnectionString { get; set; }
         public static string IdentityContextDbType { get; set; }
-
-        public static string ErpContexConnectionString { get; set; }
-        public static string ErpContextDbType { get; set; }
     }
 }
