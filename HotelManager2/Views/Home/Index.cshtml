@@ -1,0 +1,143 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <title></title>
+    <link href="~/node_modules/kendo/styles/kendo.common-material.min.css" rel="stylesheet" />
+    <link href="~/node_modules/kendo/styles/kendo.material.min.css" rel="stylesheet" />
+    <link href="~/node_modules/kendo/styles/kendo.material.mobile.min.css" rel="stylesheet" />
+
+    <script src="~/node_modules/jquery/dist/jquery.js"></script>
+
+    <script src="~/node_modules/kendo/kendo-all.min.js"></script>
+    <script src="~/node_modules/kendo/kendo.timezones.min.js"></script>
+</head>
+<body>
+    <div id="example" class="k-content">
+        <div id="scheduler"></div>
+    </div>
+    @*<p>
+        <label>Title: <input name="title" /></label>
+    </p>
+    <p>
+        <label>Start: <input data-role="datetimepicker" name="start" /></label>
+    </p>
+    <p>
+        <label>End: <input data-role="datetimepicker" name="end" /></label>
+    </p>*@
+    <script id="editor" type="text/x-kendo-template">
+        <div class="k-edit-label"><label for="title">Title</label></div>
+        <div data-container-for="title" class="k-edit-field"><input type="text" class="k-input k-textbox" name="title" title="Title" required="required"></div>
+        <div class="k-edit-label"><label for="start">Start</label></div>
+        <div data-container-for="start" class="k-edit-field"><input type="text" data-type="date" data-role="datepicker" data-validate="true" name="start" title="Start" class="k-input" style="width: 100%;"></div>
+        <div class="k-edit-label"><label for="end">End</label></div>
+        <div data-container-for="end" class="k-edit-field"><input type="text" data-type="date" data-role="datepicker" data-validate="true" name="end" title="End" class="k-input" style="width: 100%;"></div>
+        <div class="k-edit-label"><label for="description">Description</label></div>
+        <div data-container-for="description" class="k-edit-field"><textarea name="description" class="k-textbox" title="Description" data-bind="value:description"></textarea></div>
+    </script>
+    <script>
+        var newdate = new Date();
+        newdate.setDate(newdate.getDate());
+        var nd = new Date(newdate);
+        var isResizedManually = false;
+        $(function () {
+            $("#scheduler").kendoScheduler({
+                date:nd,
+                eventHeight: 50,
+                editable: {
+                    template: $("#editor").html()
+                },
+                views: [{
+                    type: "timelineMonth", title: "Three day view", type: "timelineMonth",
+                    startTime: new Date("2013/6/13 00:00 AM"),
+                    majorTick: 1440, MinorTickCount:1, selected: true }],
+                timezone: "Etc/UTC",
+                dataSource: {
+                    batch: true,
+                    transport: {
+                        read: {
+                            url:  "@HotelManager.Web.Configuration.SiteConfigurationOptions.Url" + "api/events",
+                            dataType: "jsonp"
+                        },
+                        update: {
+                            url: "https://demos.telerik.com/kendo-ui/service/meetings/update",
+                            dataType: "jsonp"
+                        },
+                        create: {
+                            url:  "@HotelManager.Web.Configuration.SiteConfigurationOptions.Url" + "api/events/create",
+                            dataType: "jsonp"
+                        },
+                        destroy: {
+                            url: "https://demos.telerik.com/kendo-ui/service/meetings/destroy",
+                            dataType: "jsonp"
+                        },
+                        parameterMap: function (options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return { models: kendo.stringify(options.models) };
+                            }
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Id: { from: "Id" },
+                                title: { from: "Title", defaultValue: "No title", validation: { required: true } },
+                                start: { type: "date", from: "Start" },
+                                end: { type: "date", from: "End" },
+                                description: { from: "Description" },
+                                roomId: { from: "RoomId"},
+                                isAllDay: { type: "boolean", from: "IsAllDay" }
+                            }
+                        }
+                    }
+                },
+                group: {
+                    resources: ["Rooms"],
+                    orientation: "vertical"
+                },
+                resources: [
+                    {
+                        field: "roomId",
+                        name: "Rooms",
+                        dataSource: [
+                            { text: "Meeting Room 101", value: 1, color: "#6eb3fa", roomId : "1"},
+                            { text: "Meeting Room 201", value: 2, color: "#f58a8a", roomId: "2"}
+                        ],
+                        title: "Room"
+                    }
+                ]
+            });
+        });
+
+        var ThreeDayView = kendo.ui.MultiDayView.extend({
+            nextDate: function () {
+                return kendo.date.nextDay(this.startDate());
+            },
+            name: "ThreeDayView",
+            calculateDateRange: function () {
+                //create a range of dates to be shown within the view
+                var start = this.options.date,
+                    idx, length,
+                    dates = [];
+
+                for (idx = 0, length = 30; idx < length; idx++) {
+                    dates.push(start);
+                    start = kendo.date.nextDay(start);
+                }
+
+                this._render(dates);
+            }
+        });
+    </script>
+
+</body>
+</html>

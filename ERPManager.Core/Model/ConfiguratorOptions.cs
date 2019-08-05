@@ -19,6 +19,10 @@ namespace ERPManager.DataAccess.Model
 
     public class SiteSettings
     {
+        public SiteSettings()
+        {
+            Authority = "http://localhost:5000/";
+        }
         public string Authority { get; set; }
     }
 }
