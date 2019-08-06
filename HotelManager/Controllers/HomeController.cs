@@ -12,6 +12,7 @@ using HotelManager.Web.Models;
 
 namespace HotelManager.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IHttpContextAccessor _httpContextAccessor;

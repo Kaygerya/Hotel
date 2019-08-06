@@ -52,35 +52,47 @@ namespace HotelManager.Web
             services.AddSingleton<ILanguageService, LanguageService>();
             services.AddSingleton<IRoomService, RoomService>();
 
+            #region identity server
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = "Cookies";
+            //    options.DefaultChallengeScheme = "oidc";
+            //})
+            //    .AddCookie("Cookies")
+            //    .AddOpenIdConnect("oidc", options =>
+            //    {
+            //        options.SignInScheme = "Cookies";
+            //        options.Authority = IdentityConfigurationOptions.Authority;
+            //        options.RequireHttpsMetadata = IdentityConfigurationOptions.RequireHttpsMetadata;
+            //        options.ClientId = "mvc";
+            //        options.ClientSecret = "secret";
+            //        options.SaveTokens = true;
+            //        options.GetClaimsFromUserInfoEndpoint = true;
+            //        options.Scope.Add("api1");
+            //        options.Scope.Add("profile");
 
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            //        options.ResponseType = "code id_token";
+            //        //options.ResponseType = "code id_token token";
+            //    });
+            //services.AddSession();
+            //services.AddDistributedMemoryCache();
+            //services.AddMemoryCache();
+            #endregion
 
             services.AddAuthentication(options =>
             {
-                options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
-                .AddCookie("Cookies")
-                .AddOpenIdConnect("oidc", options =>
-                {
-                    options.SignInScheme = "Cookies";
-                    options.Authority = IdentityConfigurationOptions.Authority;
-                    options.RequireHttpsMetadata = IdentityConfigurationOptions.RequireHttpsMetadata;
-                    options.ClientId = "mvc";
-                    options.ClientSecret = "secret";
-                    options.SaveTokens = true;
-                    options.GetClaimsFromUserInfoEndpoint = true;
-                    options.Scope.Add("api1");
-                    options.Scope.Add("profile");
+           .AddCookie(options =>
+           {
+               options.LoginPath = "/User/Login";
+               options.LogoutPath = "/User/logout";
+           });
 
-                    options.ResponseType = "code id_token";
-                    //options.ResponseType = "code id_token token";
-                });
 
-            services.AddSession();
-            services.AddDistributedMemoryCache();
-
-            services.AddMemoryCache();
             services.AddMvc();
         }
 
@@ -104,8 +116,8 @@ namespace HotelManager.Web
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseFileServer();
-           // app.UseNodeModules(env.ContentRootPath);
-            app.UseSession();
+            app.UseNodeModules(env.ContentRootPath);
+            //app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseMvc(configureRoutes);
         }
